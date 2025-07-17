@@ -1,0 +1,72 @@
+---
+/* Type imports */
+
+/* Regular imports (components, assets, constants, etc.) */
+// https://docs.astro.build/en/guides/styling/#url-css-imports
+import stylesUrl from "@assets/css/style.css?url";
+import printStylesUrl from "@assets/css/print.css?url";
+
+/* Interface Props */
+interface Props {
+	pageTitle: string;
+	pageDesc: string;
+	ogLocale?: string;
+	ogType?: string;
+	socialImageURL?: URL;
+	socialImageAlt?: string;
+	canonicalURL?: URL;
+}
+
+/* Extract props */
+/* TODO: update socialImageURL */
+const {
+	pageTitle,
+	pageDesc,
+	ogLocale = "en_GB",
+	ogType = "website",
+	socialImageURL = new URL("/images/opengraph.png", Astro.url.origin),
+	socialImageAlt = "",
+	canonicalURL = new URL(Astro.url.pathname, Astro.site),
+} = Astro.props;
+
+/** Other local constants or functions */
+---
+
+<!-- https://www.matuzo.at/blog/html-boilerplate/ -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- each page must have a unique title -->
+<title>{pageTitle}</title>
+
+<!-- If a browser does not support JS modules, it is a browser browser that does not support modern JavaScript, it won’t get any JavaScript and has to live with the plain old, even if reduced but still usable, HTML only experience -->
+<!-- Processing of the script contents is deferred -->
+<script type="module" is:inline>
+	document.documentElement.classList.remove("no-js");
+	document.documentElement.classList.add("js");
+	// Use the js class in CSS, if the styling of a component is different, when JS is active.
+</script>
+
+<link rel="stylesheet" href={stylesUrl} />
+<link rel="stylesheet" href={printStylesUrl} media="print" />
+
+<!-- each page must have a unique desc -->
+<meta name="description" content={pageDesc} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
+<meta property="og:image" content={socialImageURL} />
+{!!socialImageAlt && <meta property="og:image:alt" content={socialImageAlt} />}
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:type" content={ogType} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:url" content={canonicalURL} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- <link rel="icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/my.webmanifest" /> -->
+<!-- TODO: update theme color -->
+<meta name="theme-color" content="#FF00FF" />
+<link rel="me" href="https://indieweb.social/@arpit" />
+<meta name="generator" content={Astro.generator} />

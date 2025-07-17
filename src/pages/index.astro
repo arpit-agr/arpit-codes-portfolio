@@ -1,16 +1,19 @@
 ---
+/* Type imports */
 
+/* Regular imports (components, assets, constants, etc.) */
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+/* Interface Props */
+
+/* Extract props */
+
+/* Other local constants or functions */
+const pageTitle = "Hello world";
+const pageDesc =
+	"The unique description of the page displayed on search result pages. It can be any length, but search engines truncate snippets to 155–160 characters.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle} pageDesc={pageDesc}>
+	<h1>{pageTitle}</h1>
+</BaseLayout>
