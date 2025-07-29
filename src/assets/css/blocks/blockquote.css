@@ -1,0 +1,35 @@
+/* style the figure element that has the blockquote */
+.blockquote {
+	> .stack {
+		block-size: 100%;
+	}
+
+	blockquote {
+		flex-grow: 1;
+
+		:first-child:only-child {
+			font-size: var(--step-1);
+			line-height: var(--leading-snug);
+			text-wrap: balance;
+		}
+
+		:first-child::before {
+			content: open-quote;
+			display: block;
+			block-size: var(--space-m);
+			font-size: var(--step-6);
+			translate: 0 -200%;
+			-webkit-text-stroke: var(--border-thinner) var(--color-text);
+		}
+
+		:last-child::after {
+			content: close-quote;
+			opacity: 0;
+		}
+	}
+
+	figcaption {
+		align-self: end;
+		font-style: italic;
+	}
+}
