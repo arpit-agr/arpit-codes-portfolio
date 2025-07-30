@@ -3,9 +3,10 @@
 	--_form-row-gap: var(--space-m-l);
 	--_form-column-gap: calc(2 * var(--_form-spacing));
 	--_form-spacing: var(--space-s-m);
+	--_color-form-bg: var(--color-bg);
 	/* this value is hardcoded in the textarea svg background */
 	--_color-form-border: var(--color-text);
-	--_form-border-width: var(--border-thin);
+	--_form-border-width: var(--border-normal);
 
 	--box-padding: var(--_form-spacing);
 	--box-border-thickness: var(--_form-border-width);
@@ -15,8 +16,7 @@
 	position: relative;
 	max-inline-size: var(--_form-max-width);
 	margin-inline: auto;
-	background: var(--color-form-bg);
-	box-shadow: var(--shadow-3);
+	background: var(--_color-form-bg);
 	overflow: clip; /* why: the paper texture is overflowing on Chrome  */
 	/* rotate: -2deg; */
 
@@ -87,7 +87,7 @@
 		block-size: calc(100% + (2 * var(--_form-spacing)));
 		background: var(--_color-form-border);
 		translate: calc(0.5 * var(--_form-column-gap)) 0;
-		opacity: 0.5;
+		/* opacity: 0.5; */
 
 		@container (width > 50vi) {
 			display: none;
@@ -98,7 +98,7 @@
 .postage-stamp-container {
 	float: inline-end;
 	margin-inline-start: 1ch;
-	outline: var(--border-normal) dashed var(--_color-form-border);
+	outline: var(--_form-border-width) dashed var(--_color-form-border);
 	aspect-ratio: 1;
 
 	img {
@@ -130,11 +130,11 @@
 	}
 
 	input:-webkit-autofill {
-		-webkit-box-shadow: 0 0 0px 1000px var(--color-form-bg) inset;
+		-webkit-box-shadow: 0 0 0px 1000px var(--_color-form-bg) inset;
 	}
 
 	:has(> input) {
-		border-block-end: var(--border-normal) dashed var(--_color-form-border);
+		border-block-end: var(--_form-border-width) dashed var(--_color-form-border);
 	}
 }
 
