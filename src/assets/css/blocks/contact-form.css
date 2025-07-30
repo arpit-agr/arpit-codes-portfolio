@@ -98,7 +98,7 @@
 
 .postage-stamp-container {
 	float: inline-end;
-	margin-inline-start: 1ch;
+	margin-inline-start: 1em;
 	outline: var(--_form-border-width) dashed var(--_color-form-border);
 	aspect-ratio: 1;
 
