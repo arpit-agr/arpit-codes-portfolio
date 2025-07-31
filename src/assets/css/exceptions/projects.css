@@ -1,0 +1,30 @@
+#projects {
+	figure {
+		z-index: 1;
+	}
+
+	.blockquote {
+		--color-box-border: var(--color-text);
+	}
+
+	> :last-child {
+		--grid-min-item-size: min(25ch, 100%);
+		grid-auto-rows: 1fr;
+	}
+
+	li:nth-child(odd) {
+		rotate: 1deg;
+	}
+
+	li:nth-child(even) {
+		rotate: -1deg;
+	}
+
+	li:first-child {
+		rotate: 2deg;
+	}
+
+	li:nth-child(2) {
+		rotate: -2deg;
+	}
+}
