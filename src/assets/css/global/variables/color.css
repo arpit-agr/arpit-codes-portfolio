@@ -1,0 +1,17 @@
+/* TODO: update theme color in the head if the light and dark colors change  */
+:root {
+	/*--color-light: hsl(0deg 0% 95%);*/
+	--color-light: Thistle;
+	--color-dark: hsl(0deg 0% 5%);
+}
+
+/* 2nd order variables */
+:root {
+	--color-text: light-dark(var(--color-dark), var(--color-light));
+	--color-bg: light-dark(var(--color-light), var(--color-dark));
+
+	--color-btn-bg: #0000;
+	--color-btn-hover-bg: light-dark(var(--color-dark), var(--color-light));
+	--color-btn-text: var(--color-text);
+	--color-btn-hover-text: var(--color-bg);
+}
