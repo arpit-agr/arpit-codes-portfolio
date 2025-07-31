@@ -1,0 +1,66 @@
+#about-me {
+	--wrapper-max-width: 62rem;
+	column-width: 25ch;
+	column-gap: var(--space-xl);
+	column-rule: var(--border-normal) solid;
+
+	> :first-child {
+		position: relative;
+		column-span: all;
+		margin-block-end: var(--section-flow-space);
+	}
+
+	.profile-pic {
+		position: absolute;
+		inset-inline-start: 50%;
+		inset-block-start: 50%;
+		block-size: 2.75lh;
+		inline-size: auto;
+		background-color: var(--color-bg);
+		translate: calc(-50% + 0.125lh) calc(-50% - 0.25lh);
+		outline: var(--border-normal) solid;
+		rotate: -5deg;
+		mix-blend-mode: luminosity;
+		filter: url(#n0);
+	}
+
+	p {
+		break-inside: avoid;
+		text-align: justify;
+		hyphens: auto;
+		hyphenate-limit-chars: 10 4 4;
+
+		> svg {
+			float: inline-start;
+			shape-margin: 1ch;
+			inline-size: auto;
+			margin-inline-end: 1ch;
+			margin-block-end: 1lh;
+
+			path {
+				fill: var(--color-text);
+			}
+		}
+	}
+
+	> p + p:not(:has(svg)) {
+		text-indent: 4ch;
+	}
+
+	@container (width >= 38.0625rem) {
+		p:nth-of-type(3) {
+			text-indent: unset;
+		}
+	}
+
+	.sunflower-doodle {
+		block-size: 2lh;
+		shape-outside: url(/src/assets/img/sunflower.svg);
+	}
+
+	.heart {
+		block-size: 1lh;
+		translate: 0 0.125lh;
+		shape-outside: url(/src/assets/img/heart.svg);
+	}
+}
