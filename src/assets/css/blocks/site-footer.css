@@ -1,4 +1,6 @@
 .site-footer {
-	--region-space: var(--space-xs-s);
+	/*--region-space: var(--space-xs-s);*/
+	--region-start-space: 0;
+	--region-end-space: var(--space-xs-s);
 	font-size: var(--step--1);
 }
