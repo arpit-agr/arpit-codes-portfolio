@@ -1,0 +1,57 @@
+.site-nav {
+	--_nav-border-width: var(--border-normal);
+	position: sticky;
+	inset-block-start: 0px;
+	background-color: var(--color-bg);
+	outline: var(--_nav-border-width) solid;
+	outline-offset: calc(0.5 * var(--_nav-border-width));
+	z-index: 2;
+
+	ul {
+		--cluster-gap: var(--space-m);
+		overflow: auto;
+	}
+
+	li {
+		flex-shrink: 0;
+	}
+
+	a {
+		position: relative;
+		display: inline-block;
+		padding-block: var(--site-nav-padding);
+		line-height: var(--leading-tight);
+		text-decoration-line: none;
+
+		&:hover {
+			.circle {
+				--offset: 180px;
+			}
+		}
+
+		.circle {
+			max-inline-size: unset;
+			position: absolute;
+			inset-inline-start: 50%;
+			inset-block-start: 50%;
+			translate: -50% -66%;
+			block-size: calc(1lh + var(--site-nav-padding));
+			inline-size: calc(100% + 3ch);
+			fill: none;
+			stroke-width: var(--_nav-border-width);
+			stroke-linecap: round;
+			stroke-dasharray: var(--offset, 69px) 278px;
+			stroke-dashoffset: 361px;
+
+			@media (hover) and (pointer: fine) and ((prefers-reduced-motion: no-preference)) {
+				transition: stroke-dasharray calc(2 * var(--transition-duration)) ease;
+				transition-delay: calc(1 / 4 * var(--transition-duration));
+				pointer-events: none;
+			}
+
+			path {
+				stroke: var(--color-text);
+			}
+		}
+	}
+}
