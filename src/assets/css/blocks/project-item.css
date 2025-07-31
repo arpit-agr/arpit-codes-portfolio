@@ -1,0 +1,60 @@
+.project-item {
+	--stack-gap: 0;
+	--stack-horizontal-alignment: stretch;
+
+	position: sticky;
+	inset-block-start: var(--scroll-margin-block-start);
+	counter-increment: project-counter;
+	outline: var(--border-normal) solid;
+	box-shadow: var(--shadow-3);
+	/*overflow: clip;*/
+
+	/* TODO: should I add a scroll-driven animation to stack the cards? */
+
+	@supports (width: calc(sibling-index() * 100px)) {
+		inset-block-start: calc(
+			var(--scroll-margin-block-start) + (0.125lh * (sibling-index() - 1))
+		);
+	}
+
+	@container (width >= 36.5rem) {
+		position: relative;
+		inset-block-start: unset;
+		box-shadow: unset;
+	}
+
+	&::before {
+		content: "0" counter(project-counter);
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		padding-block: 0.25lh;
+		padding-inline-start: var(--space-m);
+		padding-inline-end: calc(0.25 * var(--space-m));
+		background: var(--color-text);
+		color: var(--color-bg);
+		font-family: var(--font-handwritten);
+		font-size: var(--step--1);
+		line-height: var(--leading-snug);
+	}
+}
+
+.project-thumbnail {
+	block-size: 8lh;
+	background-color: var(--color-text);
+	border-block-end: var(--border-normal) solid;
+}
+
+.project-content {
+	--stack-gap: initial;
+	flex-grow: 9999;
+	outline: none;
+
+	> .stack {
+		block-size: 100%;
+
+		> :last-child {
+			margin-block-start: auto;
+		}
+	}
+}
