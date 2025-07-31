@@ -1,0 +1,41 @@
+/* duration */
+:root {
+	--transition-duration: 300ms;
+}
+
+/*timing function*/
+:root {
+	--ease-in-out-3: cubic-bezier(0.5, 0, 0.5, 1);
+	--ease-out-3: cubic-bezier(0, 0, 0.3, 1);
+}
+
+@keyframes pulse {
+	50% {
+		scale: 0.9;
+	}
+}
+
+@keyframes shake-z {
+	0%,
+	100% {
+		rotate: 0deg;
+	}
+	20% {
+		rotate: -2deg;
+	}
+	40% {
+		rotate: 2deg;
+	}
+	60% {
+		rotate: -2deg;
+	}
+	80% {
+		rotate: 2deg;
+	}
+}
+
+/* 2nd order variables */
+:root {
+	--animation-pulse: pulse 2s var(--ease-out-3) infinite;
+	--animation-shake-z: shake-z 1s var(--ease-in-out-3);
+}
