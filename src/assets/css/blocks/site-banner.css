@@ -1,0 +1,9 @@
+.banner-text {
+	font-size: var(--fluid-43-147); /* step-3 to step-6 */
+	letter-spacing: var(--tracking-tight);
+}
+
+.introduction {
+	font-size: var(--step-1);
+	line-height: var(--leading-snug);
+}
