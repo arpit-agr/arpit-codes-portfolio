@@ -18,7 +18,11 @@
 	margin-inline: auto;
 	background: var(--_color-form-bg);
 	overflow: clip; /* why: the paper texture is overflowing on Chrome  */
-	/* rotate: -2deg; */
+	rotate: 1deg;
+
+	@media (orientation: portrait) {
+		rotate: unset;
+	}
 
 	/* TODO: do I still need this? */
 	&::before {
@@ -60,7 +64,6 @@
 	label {
 		font-size: var(--step--1);
 		text-transform: uppercase;
-		letter-spacing: var(--tracking-wide);
 	}
 
 	input,
