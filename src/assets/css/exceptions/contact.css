@@ -1,0 +1,30 @@
+.or {
+	--grid-gap: var(--space-xs);
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	align-items: center;
+
+	svg {
+		inline-size: 2ch;
+		rotate: -18deg;
+
+		path {
+			fill: currentColor;
+		}
+	}
+
+	> :first-child {
+		scale: -1 1;
+		rotate: 12deg;
+	}
+}
+
+#contact > form ~ * {
+	font-size: var(--step-2);
+	line-height: var(--leading-flat);
+}
+
+.mail {
+	padding: var(--input-padding);
+	overflow-wrap: anywhere;
+	rotate: -1deg;
+}
