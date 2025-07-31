@@ -1,0 +1,9 @@
+:root {
+	--border-base: max(0.0625ex, 1.5px);
+
+	--border-thinner: calc(0.25 * var(--border-base));
+	--border-thin: calc(0.5 * var(--border-base));
+	--border-normal: var(--border-base);
+	--border-thick: calc(1.5 * var(--border-base));
+	--border-thicker: calc(2 * var(--border-base));
+}
