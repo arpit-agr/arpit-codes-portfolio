@@ -1,0 +1,19 @@
+:root {
+	--font-base: "Special Elite", system-ui;
+	--font-handwritten: "Rock Salt", cursive;
+}
+
+:root {
+	--leading-flat: 0.9;
+	--leading-tight: 1.1;
+	--leading-snug: 1.3;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.7;
+	--leading-loose: 1.9;
+}
+
+:root {
+	--tracking-tight: -0.05em;
+	--tracking-normal: 0em;
+	--tracking-wide: 0.05em;
+}
