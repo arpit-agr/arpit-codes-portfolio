@@ -1,5 +1,4 @@
 .contact-form {
-	--_form-max-width: 48rem;
 	--_form-row-gap: var(--space-m-l);
 	--_form-column-gap: calc(2 * var(--_form-spacing));
 	--_form-spacing: var(--space-m);
@@ -14,8 +13,6 @@
 	--sidebar-gap: var(--_form-row-gap) var(--_form-column-gap);
 
 	position: relative;
-	max-inline-size: var(--_form-max-width);
-	margin-inline: auto;
 	background: var(--_color-form-bg);
 	overflow: clip; /* why: the paper texture is overflowing on Chrome  */
 	rotate: 1deg;
@@ -91,7 +88,6 @@
 		block-size: calc(100% + (2 * var(--_form-spacing)));
 		background: var(--_color-form-border);
 		translate: calc(0.5 * var(--_form-column-gap)) 0;
-		/* opacity: 0.5; */
 
 		@container (width > 50vi) {
 			display: none;
