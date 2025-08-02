@@ -1,7 +1,26 @@
+#contact {
+	> :last-child {
+		--measure: 48rem;
+		gap: var(--space-l);
+	}
+
+	form {
+		align-self: stretch;
+	}
+}
+
 .or {
 	--grid-gap: var(--space-xs);
 	grid-template-columns: auto minmax(0, 1fr) auto;
 	align-items: center;
+
+	font-size: var(--step-1);
+	line-height: var(--leading-snug);
+
+	span {
+		text-align: center;
+		text-wrap: balance;
+	}
 
 	svg {
 		inline-size: 2ch;
@@ -18,13 +37,11 @@
 	}
 }
 
-#contact > form ~ * {
+.mail {
 	font-size: var(--step-2);
 	line-height: var(--leading-flat);
-}
-
-.mail {
 	padding: var(--input-padding);
-	overflow-wrap: anywhere;
+	/*overflow-wrap: anywhere;*/
 	rotate: -1deg;
+	text-align-last: center;
 }
