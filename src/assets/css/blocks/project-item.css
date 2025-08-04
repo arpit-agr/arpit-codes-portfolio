@@ -23,6 +23,7 @@
 		box-shadow: unset;
 	}
 
+	/* TODO: check if -webkit-font-smoothing value needs to be updated in dark mode  */
 	&::before {
 		content: "0" counter(project-counter);
 		position: absolute;
