@@ -6,8 +6,6 @@
 	inset-block-start: var(--scroll-margin-block-start);
 	counter-increment: project-counter;
 	outline: var(--border-normal) solid;
-	box-shadow: var(--shadow-3);
-	/*overflow: clip;*/
 
 	/* TODO: should I add a scroll-driven animation to stack the cards? */
 
@@ -15,12 +13,6 @@
 		inset-block-start: calc(
 			var(--scroll-margin-block-start) + (0.125lh * (sibling-index() - 1))
 		);
-	}
-
-	@container (width >= 36.5rem) {
-		position: relative;
-		inset-block-start: unset;
-		box-shadow: unset;
 	}
 
 	/* TODO: check if -webkit-font-smoothing value needs to be updated in dark mode  */
