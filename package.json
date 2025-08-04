@@ -12,6 +12,13 @@
 		"astro": "^5.12.4"
 	},
 	"devDependencies": {
-		"autoprefixer": "^10.4.21"
+		"postcss-preset-env": "^10.2.4",
+		"browserslist-config-baseline": "^0.4.0"
+	},
+	"browserslist": [
+		"extends browserslist-config-baseline"
+	],
+	"browserslist-config-baseline": {
+		"logConfigToConsole": true
 	}
 }
