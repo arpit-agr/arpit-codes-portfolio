@@ -4,9 +4,12 @@
 		grid-auto-rows: 1fr;
 	}
 
-	.project-item {
+	.project-item,
+	.blockquote {
 		box-shadow: var(--shadow-3);
+	}
 
+	.project-item {
 		&:nth-child(odd) {
 			rotate: 1deg;
 		}
@@ -26,19 +29,18 @@
 
 	.blockquote {
 		--color-box-border: var(--color-text);
-		box-shadow: var(--shadow-3);
 		z-index: 1;
 	}
 
 	@container (width >= 36.5rem) {
-		.project-item {
-			position: relative;
-			inset-block-start: unset;
+		.project-item,
+		.blockquote {
 			box-shadow: unset;
 		}
 
-		.blockquote {
-			box-shadow: unset;
+		.project-item {
+			position: relative;
+			inset-block-start: unset;
 		}
 	}
 }
