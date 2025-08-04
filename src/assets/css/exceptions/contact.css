@@ -14,8 +14,8 @@
 	grid-template-columns: auto minmax(0, 1fr) auto;
 	align-items: center;
 
-	font-size: var(--step-1);
-	line-height: var(--leading-snug);
+	/*font-size: var(--step-1);
+	line-height: var(--leading-snug);*/
 
 	span {
 		text-align: center;
