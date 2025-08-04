@@ -4,12 +4,18 @@
 	inset-block-start: 0px;
 	background-color: var(--color-bg);
 	outline: var(--_nav-border-width) solid;
-	outline-offset: calc(0.5 * var(--_nav-border-width));
 	z-index: 2;
 
 	ul {
 		--cluster-gap: var(--space-m);
-		overflow: auto;
+		overflow: auto hidden;
+		scrollbar-width: thin;
+		scrollbar-color: color-mix(in hsl, var(--color-text), var(--color-bg)) #0000;
+
+		&:hover {
+			scrollbar-color: color-mix(in hsl, var(--color-text) 75%, var(--color-bg))
+				#0000;
+		}
 	}
 
 	li {
