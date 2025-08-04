@@ -1,9 +1,8 @@
 .site-nav {
-	--_nav-border-width: var(--border-normal);
 	position: sticky;
 	inset-block-start: 0px;
 	background-color: var(--color-bg);
-	outline: var(--_nav-border-width) solid;
+	outline: var(--site-nav-border) solid;
 	z-index: 2;
 
 	ul {
@@ -25,7 +24,7 @@
 	a {
 		position: relative;
 		display: inline-block;
-		padding-block: var(--site-nav-padding);
+		padding-block: var(--site-nav-link-padding);
 		line-height: var(--leading-tight);
 		text-decoration-line: none;
 
@@ -41,10 +40,10 @@
 			inset-inline-start: 50%;
 			inset-block-start: 50%;
 			translate: -50% -66%;
-			block-size: calc(1lh + var(--site-nav-padding));
+			block-size: calc(1lh + var(--site-nav-link-padding));
 			inline-size: calc(100% + 3ch);
 			fill: none;
-			stroke-width: var(--_nav-border-width);
+			stroke-width: var(--site-nav-border);
 			stroke-linecap: round;
 			stroke-dasharray: var(--offset, 69px) 278px;
 			stroke-dashoffset: 361px;
