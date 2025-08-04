@@ -4,6 +4,12 @@
 	column-gap: var(--space-xl);
 	column-rule: var(--border-normal) solid;
 
+	&:target {
+		scroll-margin-block-start: calc(
+			var(--main-padding) + var(--site-nav-height)
+		);
+	}
+
 	> :first-child {
 		position: relative;
 		column-span: all;
