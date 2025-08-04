@@ -17,7 +17,7 @@
 	overflow: clip; /* why: the paper texture is overflowing on Chrome  */
 	rotate: 1deg;
 
-	@media (orientation: portrait) {
+	@media (--portrait) {
 		rotate: unset;
 	}
 
@@ -183,7 +183,7 @@
 			outline-color: var(--color-btn-hover-bg);
 			-webkit-font-smoothing: antialiased;
 
-			@media (prefers-color-scheme: dark) {
+			@media (--OSdark) {
 				-webkit-font-smoothing: auto;
 			}
 		}

@@ -43,10 +43,12 @@
 			stroke-dasharray: var(--offset, 69px) 278px;
 			stroke-dashoffset: 361px;
 
-			@media (hover) and (pointer: fine) and ((prefers-reduced-motion: no-preference)) {
-				transition: stroke-dasharray calc(2 * var(--transition-duration)) ease;
-				transition-delay: calc(1 / 4 * var(--transition-duration));
-				pointer-events: none;
+			@media (--mouse) {
+				@media (--motionOK) {
+					transition: stroke-dasharray calc(2 * var(--transition-duration)) ease;
+					transition-delay: calc(1 / 4 * var(--transition-duration));
+					pointer-events: none;
+				}
 			}
 
 			path {

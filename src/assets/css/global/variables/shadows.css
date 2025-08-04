@@ -47,7 +47,7 @@
 			hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%));
 }
 
-@media (prefers-color-scheme: dark) {
+@media (--OSdark) {
 	:root {
 		--shadow-color: 220 40% 2%;
 		--shadow-strength: 25%;
