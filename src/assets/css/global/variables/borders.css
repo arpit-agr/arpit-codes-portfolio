@@ -1,5 +1,5 @@
 :root {
-	--border-base: max(0.0625ex, 1.5px);
+	--border-base: max(0.0625ex, 2px);
 
 	--border-thinner: calc(0.25 * var(--border-base));
 	--border-thin: calc(0.5 * var(--border-base));
