@@ -5,4 +5,9 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	site: "https://arpit.codes",
 	trailingSlash: "always",
+	vite: {
+		build: {
+			cssMinify: false,
+		},
+	},
 });
