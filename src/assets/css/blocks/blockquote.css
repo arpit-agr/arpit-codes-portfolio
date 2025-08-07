@@ -6,6 +6,7 @@
 
 	blockquote {
 		flex-grow: 1;
+		isolation: isolate;
 
 		:first-child:only-child {
 			font-size: var(--step-1);
@@ -20,6 +21,10 @@
 			font-size: var(--step-6);
 			translate: 0 -200%;
 			-webkit-text-stroke: var(--border-thinner) var(--color-text);
+
+			/* this is to force the quote to appear behind the text when forced colors are active  */
+			position: relative;
+			z-index: -1;
 		}
 
 		:last-child::after {
