@@ -14,7 +14,11 @@
 		*/
 		translate: 0
 			calc((1 / 2 * var(--site-nav-height)) - var(--site-nav-padding));
-		background-color: var(--color-text);
+		/*
+			Why use a border instead of background-color?
+			Because the border persists when forced colors mode is active
+		*/
+		border-block-start: var(--site-nav-border) solid var(--color-text);
 		filter: url(#n0);
 	}
 }
