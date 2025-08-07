@@ -1,6 +1,6 @@
 #contact {
 	> :last-child {
-		--measure: 48rem;
+		--center-max-width: 48rem;
 		gap: var(--space-l);
 	}
 
@@ -41,7 +41,6 @@
 	font-size: var(--step-2);
 	line-height: var(--leading-flat);
 	padding: var(--input-padding);
-	/*overflow-wrap: anywhere;*/
 	rotate: -1deg;
 	text-align-last: center;
 }
