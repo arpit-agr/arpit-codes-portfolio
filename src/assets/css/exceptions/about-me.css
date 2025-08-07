@@ -16,18 +16,29 @@
 		margin-block-end: var(--section-flow-space);
 	}
 
-	.profile-pic {
+	.profile-pic-container {
 		position: absolute;
 		inset-inline-start: 50%;
 		inset-block-start: 50%;
-		block-size: 2.75lh;
-		inline-size: auto;
-		background-color: var(--color-bg);
 		translate: calc(-50% + 0.125lh) calc(-50% - 0.25lh);
+		block-size: 2.75lh;
+		aspect-ratio: 1;
 		outline: var(--border-normal) solid;
 		rotate: -5deg;
-		mix-blend-mode: luminosity;
 		filter: url(#n0);
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background-color: var(--color-light);
+		}
+	}
+
+	.profile-pic {
+		inline-size: 100%;
+		background-color: var(--color-bg);
+		mix-blend-mode: luminosity;
 	}
 
 	p {
