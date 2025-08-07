@@ -1,12 +1,38 @@
 .site-nav {
+	container-type: scroll-state;
 	position: sticky;
 	inset-block-start: 0px;
-	background-color: var(--color-bg);
-	outline: var(--site-nav-border) solid;
+	margin-block-start: calc(-1 * var(--site-nav-padding));
+	/*https://codepen.io/larsenwork/pen/LymMJy*/
+	background: linear-gradient(
+		to bottom,
+		var(--color-bg),
+		hsl(from var(--color-bg) h s l / 0.988) 7.7%,
+		hsl(from var(--color-bg) h s l / 0.956) 14.8%,
+		hsl(from var(--color-bg) h s l / 0.91) 21%,
+		hsl(from var(--color-bg) h s l / 0.854) 26.5%,
+		hsl(from var(--color-bg) h s l / 0.794) 31.4%,
+		hsl(from var(--color-bg) h s l / 0.731) 35.9%,
+		hsl(from var(--color-bg) h s l / 0.667) 40.1%,
+		hsl(from var(--color-bg) h s l / 0.599) 44.2%,
+		hsl(from var(--color-bg) h s l / 0.533) 48.1%,
+		hsl(from var(--color-bg) h s l / 0.466) 52%,
+		hsl(from var(--color-bg) h s l / 0.397) 56%,
+		hsl(from var(--color-bg) h s l / 0.33) 60.1%,
+		hsl(from var(--color-bg) h s l / 0.266) 64.3%,
+		hsl(from var(--color-bg) h s l / 0.203) 68.8%,
+		hsl(from var(--color-bg) h s l / 0.143) 73.7%,
+		hsl(from var(--color-bg) h s l / 0.089) 79.2%,
+		hsl(from var(--color-bg) h s l / 0.043) 85.4%,
+		hsl(from var(--color-bg) h s l / 0.011) 92.5%,
+		transparent
+	);
 	z-index: 2;
 
-	ul {
-		--cluster-gap: var(--space-m);
+	> .box {
+		--box-padding: var(--site-nav-padding);
+		--color-box-bg: #0000;
+		outline: none;
 		overflow: auto hidden;
 		scrollbar-width: thin;
 		scrollbar-color: color-mix(in hsl, var(--color-text), var(--color-bg)) #0000;
@@ -17,6 +43,22 @@
 		}
 	}
 
+	ul {
+		--cluster-gap: var(--space-s);
+
+		> :first-child {
+			rotate: 2deg;
+		}
+
+		> :nth-child(2) {
+			rotate: -2deg;
+		}
+
+		> :last-child {
+			rotate: 2deg;
+		}
+	}
+
 	li {
 		flex-shrink: 0;
 	}
@@ -24,41 +66,31 @@
 	a {
 		position: relative;
 		display: inline-block;
-		padding-block: var(--site-nav-link-padding);
+		padding: var(--site-nav-link-padding-block)
+			var(--site-nav-link-padding-inline);
+		background: var(--color-bg);
 		line-height: var(--leading-tight);
+		text-transform: uppercase;
 		text-decoration-line: none;
+		outline: var(--site-nav-border) solid;
+		text-box: trim-end cap alphabetic;
+		transition:
+			outline-offset var(--transition-duration),
+			box-shadow var(--transition-duration),
+			scale calc(0.5 * var(--transition-duration));
+		transition-timing-function: var(--ease-out-3);
 
-		&:hover {
-			.circle {
-				--offset: 180px;
-			}
+		@container scroll-state(stuck) {
+			box-shadow: var(--shadow-3);
 		}
 
-		.circle {
-			max-inline-size: unset;
-			position: absolute;
-			inset-inline-start: 50%;
-			inset-block-start: 50%;
-			translate: -50% -66%;
-			block-size: calc(1lh + var(--site-nav-link-padding));
-			inline-size: calc(100% + 3ch);
-			fill: none;
-			stroke-width: var(--site-nav-border);
-			stroke-linecap: round;
-			stroke-dasharray: var(--offset, 69px) 278px;
-			stroke-dashoffset: 361px;
+		&:hover,
+		&:focus-visible {
+			text-decoration-line: underline;
+		}
 
-			@media (--mouse) {
-				@media (--motionOK) {
-					transition: stroke-dasharray calc(2 * var(--transition-duration)) ease;
-					transition-delay: calc(1 / 4 * var(--transition-duration));
-					pointer-events: none;
-				}
-			}
-
-			path {
-				stroke: var(--color-text);
-			}
+		&:active {
+			scale: 0.97;
 		}
 	}
 }
