@@ -86,7 +86,12 @@
 		inset-block-start: calc(-1 * var(--_form-spacing));
 		inline-size: var(--_form-border-width);
 		block-size: calc(100% + (2 * var(--_form-spacing)));
-		background: var(--_color-form-border);
+		/*
+			Why use a border instead of background-color?
+			Because the border persists when forced colors mode is active
+		*/
+		border-inline-start: var(--_form-border-width) solid
+			var(--_color-form-border);
 		translate: calc(0.5 * var(--_form-column-gap)) 0;
 
 		@container (width > 50vi) {
@@ -174,6 +179,10 @@
 		);
 		background-repeat: repeat-y;
 		background-size: auto 1lh;
+
+		@media (--forcedColors) {
+			outline: var(--_form-border-width) solid var(--_color-input-border);
+		}
 	}
 
 	textarea:not([rows]) {
