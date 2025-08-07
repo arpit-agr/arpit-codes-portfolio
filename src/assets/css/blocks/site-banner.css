@@ -1,3 +1,24 @@
+.site-banner {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset-block-end: 0;
+		inset-inline-start: 0;
+		inline-size: 100%;
+		block-size: var(--site-nav-border);
+		/*
+			Why subtract var(--site-nav-padding) if we want to center it in the middle of the nav?
+			Because the nav is being pulled up by that value using a negative margin.
+		*/
+		translate: 0
+			calc((1 / 2 * var(--site-nav-height)) - var(--site-nav-padding));
+		background-color: var(--color-text);
+		filter: url(#n0);
+	}
+}
+
 .banner-text {
 	font-size: var(--fluid-43-147); /* step-3 to step-6 */
 	letter-spacing: var(--tracking-tight);
