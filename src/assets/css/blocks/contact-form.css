@@ -96,15 +96,28 @@
 }
 
 .postage-stamp-container {
+	position: relative;
 	float: inline-end;
 	margin-inline-start: 1em;
 	outline: var(--_form-border-width) dashed var(--_color-form-border);
 	aspect-ratio: 1;
 
+	&::before,
+	img {
+		rotate: 10deg;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: var(--color-light);
+		scale: 0.95;
+	}
+
 	img {
 		max-block-size: 3.5lh;
 		inline-size: auto;
-		rotate: 10deg;
 		scale: 1.01;
 		filter: brightness(0.8) contrast(2.5);
 		mix-blend-mode: luminosity;
@@ -169,8 +182,13 @@
 
 	button {
 		background-color: var(--color-btn-bg);
-		transition-property: color, background-color, outline-color;
-		transition-duration: var(--transition-duration);
+		transition:
+			outline-offset var(--transition-duration),
+			color var(--transition-duration),
+			background-color var(--transition-duration),
+			outline-color var(--transition-duration),
+			scale calc(0.5 * var(--transition-duration));
+		transition-timing-function: var(--ease-out-3);
 
 		&:not(:focus-visible) {
 			outline: var(--_form-border-width) solid var(--_color-form-border);
@@ -186,6 +204,10 @@
 			@media (--OSdark) {
 				-webkit-font-smoothing: auto;
 			}
+		}
+
+		&:active {
+			scale: 0.97;
 		}
 	}
 }
