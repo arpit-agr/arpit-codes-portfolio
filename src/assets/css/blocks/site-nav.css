@@ -41,6 +41,8 @@
 			scrollbar-color: color-mix(in hsl, var(--color-text) 75%, var(--color-bg))
 				#0000;
 		}
+
+		/* TODO: style scrollbar when forced colors mode is active */
 	}
 
 	ul {
