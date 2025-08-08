@@ -1,0 +1,16 @@
+.skip-to-main {
+	padding: var(--input-padding);
+	background: var(--color-bg);
+	transition:
+		outline-offset var(--transition-duration) var(--ease-out-3),
+		rotate var(--transition-duration) var(--ease-out-3);
+
+	&:focus-visible {
+		position: absolute;
+		inset-block-start: var(--page-gutter);
+		inset-inline-start: var(--page-gutter);
+		rotate: -2deg;
+		/*box-shadow: var(--shadow-3);*/
+		z-index: 1;
+	}
+}
