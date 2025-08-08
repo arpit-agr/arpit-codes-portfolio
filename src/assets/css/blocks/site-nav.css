@@ -1,5 +1,4 @@
 .site-nav {
-	container-type: scroll-state;
 	position: sticky;
 	inset-block-start: 0px;
 	margin-block-start: calc(-1 * var(--site-nav-padding));
@@ -29,11 +28,21 @@
 	);
 	z-index: 2;
 
-	> .box {
-		--box-padding: var(--site-nav-padding);
-		--color-box-bg: #0000;
-		outline: none;
+	@supports (container-type: scroll-state) {
+		container-type: scroll-state;
+		container-name: site-nav;
+	}
+
+	> .scroll--viewport {
+		padding-block: var(--site-nav-padding);
+		padding-inline: var(--site-nav-padding);
+		scroll-padding-inline: var(--site-nav-padding);
+
+		max-inline-size: 100vi;
 		overflow: auto hidden;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x proximity;
+
 		scrollbar-width: thin;
 		scrollbar-color: color-mix(in hsl, var(--color-text), var(--color-bg)) #0000;
 
@@ -45,8 +54,22 @@
 		/* TODO: style scrollbar when forced colors mode is active */
 	}
 
-	ul {
+	.scroll--content {
 		--cluster-gap: var(--space-s);
+
+		> li {
+			flex-shrink: 0;
+			scroll-snap-align: start;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			display: block;
+			inline-size: calc(var(--site-nav-padding) - var(--cluster-gap));
+			aspect-ratio: 1;
+			flex-shrink: 0;
+		}
 
 		> :first-child {
 			rotate: 2deg;
@@ -61,35 +84,31 @@
 		}
 	}
 
-	li {
-		flex-shrink: 0;
-	}
-
 	a {
 		position: relative;
 		display: inline-block;
 		padding: var(--site-nav-link-padding-block)
 			var(--site-nav-link-padding-inline);
 		background: var(--color-bg);
-		line-height: var(--leading-tight);
-		text-transform: uppercase;
-		text-decoration-line: none;
 		outline: var(--site-nav-border) solid;
-		text-box: trim-end cap alphabetic;
+		line-height: var(--leading-tight);
+		/*text-transform: uppercase;
+		text-decoration-line: none;
+		text-box: trim-end cap alphabetic;*/
 		transition:
 			outline-offset var(--transition-duration),
 			box-shadow var(--transition-duration),
 			scale calc(0.5 * var(--transition-duration));
 		transition-timing-function: var(--ease-out-3);
 
-		@container scroll-state(stuck) {
+		@container site-nav scroll-state(stuck) {
 			box-shadow: var(--shadow-3);
 		}
 
-		&:hover,
+		/*&:hover,
 		&:focus-visible {
 			text-decoration-line: underline;
-		}
+		}*/
 
 		&:active {
 			scale: 0.97;
