@@ -1,0 +1,95 @@
+.flow > * + * {
+	margin-block-start: var(--flow-space, 1lh);
+}
+
+.cluster {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cluster-gap, 1lh);
+	justify-content: var(--cluster-horizontal-alignment, flex-start);
+	align-items: var(--cluster-vertical-alignment, center);
+}
+
+.repel {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--repel-gap, 1lh);
+	justify-content: space-between;
+	align-items: var(--repel-vertical-alignment, center);
+}
+
+[data-nowrap] {
+	flex-wrap: nowrap;
+}
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--stack-gap, 1lh);
+	justify-content: var(--stack-vertical-alignment, flex-start);
+	align-items: var(--stack-horizontal-alignment, flex-start);
+}
+
+.grid {
+	display: grid;
+	gap: var(--grid-row-gap, var(--grid-gap, var(--space-m-l)))
+		var(--grid-column-gap, var(--grid-gap, var(--space-m-l)));
+}
+
+[data-grid="intrinsic"] {
+	grid-template-columns: repeat(
+		var(--grid-placement, auto-fill),
+		minmax(var(--grid-min-item-size, min(16rem, 100%)), 1fr)
+	);
+}
+
+:has(> .sidebar) {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--sidebar-gap, 1lh);
+}
+
+:has(> .sidebar) > :first-child {
+	flex-basis: var(--sidebar-min-width, 16rem);
+	flex-grow: 1;
+}
+
+:has(> .sidebar) > :last-child {
+	flex-basis: 0;
+	flex-grow: 999;
+	min-inline-size: 50%;
+}
+
+:has(> .sidebar) > :only-child,
+:has(> .sidebar) > :nth-child(3) {
+	--error: "Sidebar layouts must include exactly two child elements.";
+	outline: var(--error-outline);
+}
+
+.center {
+	box-sizing: content-box;
+	max-inline-size: var(--center-max-width);
+	margin-inline: auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+[data-center="text"] * {
+	text-align: center;
+	text-wrap: balance;
+}
+
+.box {
+	padding: var(--box-padding, 1lh);
+	outline: var(--box-border-thickness, var(--border-normal)) solid
+		var(--color-box-border, var(--color-text));
+
+	color: var(--color-box-text, var(--color-text));
+	background-color: var(--color-box-bg, var(--color-bg));
+}
+
+.box * {
+	color: inherit;
+}
