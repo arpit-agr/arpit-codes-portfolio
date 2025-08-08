@@ -74,7 +74,7 @@
 	}
 
 	.scroll--content {
-		--cluster-gap: var(--space-s);
+		--cluster-gap: var(--space-xs-s);
 		padding-inline: var(--site-nav-padding);
 		/* TODO: this comment needs to be more clearer */
 		/* why: without this declaration the width would be the same as its parent even though its overflowing and the padding-inline-end would get ignored  */
