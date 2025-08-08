@@ -14,4 +14,12 @@
 	--color-btn-hover-bg: light-dark(var(--color-dark), var(--color-light));
 	--color-btn-text: var(--color-text);
 	--color-btn-hover-text: var(--color-bg);
+
+	--color-scrollbar-track: #0000;
+	--color-scrollbar-thumb: color-mix(
+		in hsl,
+		var(--color-text),
+		var(--color-bg)
+	);
+	--color-scrollbar-thumb-hover: var(--color-text);
 }
