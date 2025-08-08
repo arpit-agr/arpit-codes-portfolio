@@ -1,4 +1,5 @@
 .site-banner {
+	--site-nav-border: var(--border-normal);
 	position: relative;
 
 	&::after {
