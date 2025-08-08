@@ -1,4 +1,7 @@
 .site-nav {
+	container-type: inline-size;
+	container-name: site-nav;
+
 	position: sticky;
 	inset-block-start: 0px;
 	margin-block-start: calc(-1 * var(--site-nav-padding));
@@ -29,14 +32,13 @@
 	z-index: 2;
 
 	@supports (container-type: scroll-state) {
-		container-type: scroll-state;
-		container-name: site-nav;
+		container-type: scroll-state inline-size;
 	}
 
 	> .scroll--viewport {
 		padding-block: var(--site-nav-padding);
 
-		max-inline-size: 100vi;
+		max-inline-size: 100cqi;
 		overflow: auto hidden;
 		overscroll-behavior-x: contain;
 
@@ -62,7 +64,7 @@
 			background: var(--color-scrollbar-thumb-hover);
 		}
 
-		@supports (-moz-appearance: none) {
+		@supports (scrollbar-color: rebeccapurple green) {
 			scrollbar-width: thin;
 			scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 
@@ -103,7 +105,7 @@
 		padding: var(--site-nav-link-padding-block)
 			var(--site-nav-link-padding-inline);
 		background: var(--color-bg);
-		outline: var(--site-nav-border) solid;
+		outline: var(--border-normal) solid;
 		line-height: var(--leading-tight);
 		/*text-transform: uppercase;
 		text-decoration-line: none;
@@ -114,8 +116,10 @@
 			scale calc(0.5 * var(--transition-duration));
 		transition-timing-function: var(--ease-out-3);
 
-		@container site-nav scroll-state(stuck) {
-			box-shadow: var(--shadow-3);
+		@supports (container-type: scroll-state) {
+			@container site-nav scroll-state(stuck) {
+				box-shadow: var(--shadow-3);
+			}
 		}
 
 		/*&:hover,
