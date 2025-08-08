@@ -15,6 +15,10 @@
 		);
 	}
 
+	&:focus-within {
+		z-index: 3;
+	}
+
 	/* TODO: check if -webkit-font-smoothing value needs to be updated in dark mode  */
 	&::before {
 		content: "0" counter(project-counter);
