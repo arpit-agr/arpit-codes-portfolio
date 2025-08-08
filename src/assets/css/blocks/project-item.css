@@ -3,7 +3,7 @@
 	--stack-horizontal-alignment: stretch;
 
 	position: sticky;
-	inset-block-start: var(--scroll-margin-block-start);
+	inset-block-start: var(--scroll-margin);
 	counter-increment: project-counter;
 	outline: var(--border-normal) solid;
 
@@ -11,7 +11,7 @@
 
 	@supports (width: calc(sibling-index() * 100px)) {
 		inset-block-start: calc(
-			var(--scroll-margin-block-start) + (0.125lh * (sibling-index() - 1))
+			var(--scroll-margin) + (0.125lh * (sibling-index() - 1))
 		);
 	}
 
