@@ -35,39 +35,52 @@
 
 	> .scroll--viewport {
 		padding-block: var(--site-nav-padding);
-		padding-inline: var(--site-nav-padding);
-		scroll-padding-inline: var(--site-nav-padding);
 
 		max-inline-size: 100vi;
 		overflow: auto hidden;
 		overscroll-behavior-x: contain;
-		scroll-snap-type: x proximity;
-
-		scrollbar-width: thin;
-		scrollbar-color: color-mix(in hsl, var(--color-text), var(--color-bg)) #0000;
-
-		&:hover {
-			scrollbar-color: color-mix(in hsl, var(--color-text) 75%, var(--color-bg))
-				#0000;
-		}
 
 		/* TODO: style scrollbar when forced colors mode is active */
+
+		&::-webkit-scrollbar {
+			block-size: var(--space-2xs);
+		}
+
+		&::-webkit-scrollbar-track {
+			background: var(--color-scrollbar-track);
+			background-clip: padding-box;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: var(--color-scrollbar-thumb);
+			/*border-radius: 1e3px;*/
+			border: var(--space-4xs) solid var(--color-scrollbar-track);
+		}
+
+		&:is(:focus-visible, :focus-within)::-webkit-scrollbar-thumb,
+		&:hover::-webkit-scrollbar-thumb {
+			background: var(--color-scrollbar-thumb-hover);
+		}
+
+		@supports (-moz-appearance: none) {
+			scrollbar-width: thin;
+			scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+
+			&:hover {
+				scrollbar-color: var(--color-scrollbar-thumb-hover)
+					var(--color-scrollbar-track);
+			}
+		}
 	}
 
 	.scroll--content {
 		--cluster-gap: var(--space-s);
+		padding-inline: var(--site-nav-padding);
+		/* TODO: this comment needs to be more clearer */
+		/* why: without this declaration the width would be the same as its parent even though its overflowing and the padding-inline-end would get ignored  */
+		inline-size: max-content;
 
 		> li {
-			flex-shrink: 0;
-			scroll-snap-align: start;
-		}
-
-		&::before,
-		&::after {
-			content: "";
-			display: block;
-			inline-size: calc(var(--site-nav-padding) - var(--cluster-gap));
-			aspect-ratio: 1;
 			flex-shrink: 0;
 		}
 
