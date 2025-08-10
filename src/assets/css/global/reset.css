@@ -17,22 +17,9 @@ html {
 	-webkit-text-size-adjust: none;
 	text-size-adjust: none;
 
-	@media (--motionOK) {
+	@media (prefers-reduced-motion: no-preference) {
 		scroll-behavior: smooth;
 	}
-}
-
-@media (--motionOK) {
-	:focus-visible {
-		transition: outline-offset 0.125s;
-	}
-	:not(:active):focus-visible {
-		transition-duration: 0.25s;
-	}
-}
-
-:where(:not(:active):focus-visible) {
-	outline-offset: 5px;
 }
 
 body {
@@ -87,8 +74,11 @@ ul[role="list"] {
 }
 
 hr {
-	block-size: 1px;
-	background-color: canvasText;
+	block-size: 0;
+	border-style: solid;
+	border-width: 1px 0 0;
+	color: inherit;
+	overflow: visible;
 }
 
 sup {
