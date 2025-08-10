@@ -84,8 +84,11 @@
 	--space-l-3xl: clamp(2.25rem, 0.8684rem + 6.9079vw, 7.5rem);
 }
 
-/* @link https://utopia.fyi/clamp/calculator?a=320,1536,42.6347—147.0667 */
+/* @link https://utopia.fyi/clamp/calculator?a=320,1536,42.6347—147.0667|56.832—147.0667 */
 
 :root {
+	/* step-3 to step-6 */
 	--fluid-43-147: clamp(2.6647rem, 0.947rem + 8.5882vw, 9.1917rem);
+	/* step-4 to step-6 */
+	--fluid-57-147: clamp(3.552rem, 2.0679rem + 7.4206vw, 9.1917rem);
 }
