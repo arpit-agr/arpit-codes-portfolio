@@ -27,11 +27,13 @@
 .banner-text {
 	font-size: var(--fluid-57-147); /* step-4 to step-6 */
 
-	a::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-	}
+	/*a {
+		text-decoration-line: none;
+
+		&:hover {
+			text-decoration-line: underline;
+		}
+	}*/
 }
 
 .introduction {
