@@ -1,0 +1,29 @@
+---
+import ProjectItem from "@components/ProjectItem.astro";
+import Blockquote from "@components/Blockquote.astro";
+---
+
+<section class="flow wrapper" id="projects">
+	<div class="flow center" data-center="text">
+		<h2>My Work</h2>
+		<p>Take a look at some of the websites I've dedicated my time to.</p>
+	</div>
+	<div class="grid inline-size-container" data-grid="intrinsic">
+		<ul class="project-list" role="list">
+			<ProjectItem as="li" />
+			<ProjectItem as="li" />
+			<ProjectItem as="li" />
+			<ProjectItem as="li" />
+			<ProjectItem as="li" />
+		</ul>
+		<Blockquote>
+			<p>
+				What we make stands testament to who we are. And what we make describes
+				our values. It describes our preoccupations.
+			</p>
+			<Fragment slot="citation">
+				- Jony Ive at <cite>Stripe Sessions</cite>
+			</Fragment>
+		</Blockquote>
+	</div>
+</section>
