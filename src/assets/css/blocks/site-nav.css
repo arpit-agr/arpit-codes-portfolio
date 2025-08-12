@@ -29,7 +29,7 @@
 		hsl(from var(--color-bg) h s l / 0.011) 92.5%,
 		transparent
 	);
-	z-index: 2;
+	z-index: 999;
 
 	@supports (container-type: scroll-state) {
 		container-type: scroll-state inline-size;
