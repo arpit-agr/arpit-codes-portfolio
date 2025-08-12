@@ -1,0 +1,190 @@
+@view-transition {
+	navigation: auto;
+}
+
+:root {
+	--page-gutter: var(--space-m-l);
+	--site-nav-padding: var(--page-gutter);
+	--main-padding: var(--space-xl);
+	--section-flow-space: var(--space-l);
+
+	--action-padding: calc(0.25 * var(--space-m));
+	--site-nav-link-padding-inline: calc(0.25 * var(--space-m));
+	--site-nav-link-padding-block: calc(0.25 * var(--space-m));
+
+	/* this assumes `.site-nav a` font size is same as body text size  */
+	--site-nav-height: calc(
+		(2 * var(--site-nav-padding)) + 1em +
+			(2 * var(--site-nav-link-padding-block))
+	);
+	--scroll-margin: calc(
+		(0.5 * var(--section-flow-space)) + var(--site-nav-height)
+	);
+	--error-outline: var(--space-3xs) solid red;
+}
+
+html {
+	color-scheme: light dark;
+
+	@media (--OSdark) {
+		-webkit-font-smoothing: antialiased;
+	}
+
+	@supports (scrollbar-color: rebeccapurple green) {
+		scrollbar-color: var(--color-scrollbar-thumb-hover)
+			var(--color-scrollbar-track);
+	}
+}
+
+body {
+	position: relative;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-base);
+	font-size: var(--step-0);
+	line-height: var(--leading-normal);
+	overflow-wrap: anywhere;
+}
+
+/*
+why: we're applying the filters for all browsers except Safari
+becasue the filters causes rendering issues on Safari
+*/
+@supports not (-apple-pay-button-style: inherit) {
+	body::before {
+		content: "";
+		position: absolute;
+		inset-inline-start: 0;
+		inset-block-start: 0;
+		inline-size: 100%;
+		block-size: 100%;
+		filter: url(#roughpaper);
+		mix-blend-mode: hard-light;
+		opacity: 0.0083333333;
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	body::after {
+		content: "";
+		position: absolute;
+		inset-inline-start: 0;
+		inset-block-start: 0;
+		inline-size: 100%;
+		block-size: 100%;
+		filter: url(#grain);
+		mix-blend-mode: hard-light;
+		opacity: 0.125;
+		pointer-events: none;
+	}
+}
+
+main {
+	--region-space: var(--main-padding);
+
+	&:target {
+		scroll-margin-block-start: var(--site-nav-height);
+	}
+}
+
+:where(main > section) {
+	--flow-space: var(--main-padding);
+
+	> * {
+		--flow-space: var(--section-flow-space);
+
+		> * {
+			--flow-space: initial;
+		}
+	}
+}
+
+h1,
+.heading-1,
+h2,
+.heading-2,
+h3,
+.heading-3,
+h4,
+h5,
+h6 {
+	font-weight: 400;
+	text-box: trim-end cap alphabetic;
+}
+
+h1,
+.heading-1,
+h2,
+.heading-2 {
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-tight);
+}
+
+h1,
+.heading-1 {
+	font-size: var(--step-4);
+	line-height: var(--leading-tight);
+}
+
+h2,
+.heading-2 {
+	font-size: var(--step-3);
+	line-height: var(--leading-snug);
+}
+
+h3,
+.heading-3 {
+	font-size: var(--step-1);
+	line-height: var(--leading-snug);
+}
+
+h4 {
+	font-size: var(--step-0);
+}
+
+a {
+	color: inherit;
+	text-decoration-thickness: var(--border-normal);
+	text-underline-offset: var(--border-thicker);
+
+	&:hover,
+	&:focus-visible {
+		text-decoration-thickness: var(--border-thicker);
+	}
+}
+
+button {
+	border: none;
+}
+
+input {
+	line-height: var(--leading-flat);
+}
+
+hr {
+	border-width: var(--border-normal) 0 0;
+}
+
+@media (--motionOK) {
+	:focus-visible {
+		transition: outline-offset calc(0.5 * var(--transition-duration))
+			var(--ease-out-3);
+	}
+	:not(:active):focus-visible {
+		transition-duration: var(--transition-duration);
+	}
+}
+
+:not(:active):focus-visible {
+	outline: var(--border-thick) solid var(--color-text);
+	outline-offset: var(--border-thicker);
+}
+
+::placeholder {
+	color: var(--color-text);
+	opacity: 0.25;
+}
+
+:target {
+	scroll-margin-block-start: var(--scroll-margin);
+}
