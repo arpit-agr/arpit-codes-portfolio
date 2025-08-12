@@ -3,17 +3,41 @@
 
 /* Regular imports (components, assets, constants, etc.) */
 import BaseLayout from "@layouts/BaseLayout.astro";
+import SiteBanner from "@components/SiteBanner.astro";
+import SiteNav from "@components/SiteNav.astro";
+import AboutMe from "@partials/AboutMe.astro";
+import Projects from "@partials/Projects.astro";
+import Contact from "@partials/Contact.astro";
 
 /* Interface Props */
 
 /* Extract props */
 
 /* Other local constants or functions */
-const pageTitle = "Hello world";
+const pageTitle = "Arpit Agrawal";
 const pageDesc =
-	"The unique description of the page displayed on search result pages. It can be any length, but search engines truncate snippets to 155–160 characters.";
+	"The portfolio website of Arpit Agrawal, a web designer-developer from India.";
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDesc={pageDesc}>
-	<h1>{pageTitle}</h1>
+	<a class="skip-to-main visually-hidden" href="#main">Skip to Main Content</a>
+	<SiteBanner bannerHeadingTag="h1" />
+	<SiteNav>
+		<ul class="cluster scroll--content" role="list">
+			<li>
+				<a href="#about-me">About Me</a>
+			</li>
+			<li>
+				<a href="#projects">My Work</a>
+			</li>
+			<li>
+				<a href="#contact">Contact Me</a>
+			</li>
+		</ul>
+	</SiteNav>
+	<main id="main" class="flow region">
+		<AboutMe />
+		<Projects />
+		<Contact />
+	</main>
 </BaseLayout>
