@@ -1,4 +1,18 @@
 /* https://open-props.style/#media-queries */
+/* https://github.com/argyleink/open-props/blob/main/src/props.media.css */
+
+/* Preference Vars */
+@custom-media --OSdark (prefers-color-scheme: dark);
+@custom-media --OSlight (prefers-color-scheme: light);
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --motionNotOK (prefers-reduced-motion: reduce);
+@custom-media --forcedColors (forced-colors: active);
+
+/* Capability Vars */
+@custom-media --mouse (hover) and (pointer: fine);
+@custom-media --touch (hover: none) and (pointer: coarse);
+@custom-media --HDcolor (dynamic-range: high) or (color-gamut: p3);
+
 /* Viewport Vars */
 @custom-media --portrait (orientation: portrait);
 @custom-media --landscape (orientation: landscape);
@@ -20,15 +34,3 @@
 @custom-media --below-lg (width < 64em);
 @custom-media --below-xl (width < 80em);
 @custom-media --below-xxl (width < 96em);
-
-/* Capability Vars */
-@custom-media --mouse (hover) and (pointer: fine);
-@custom-media --touch (hover: none) and (pointer: coarse);
-@custom-media --HDcolor (dynamic-range: high) or (color-gamut: p3);
-
-/* Preference Vars */
-@custom-media --OSdark (prefers-color-scheme: dark);
-@custom-media --OSlight (prefers-color-scheme: light);
-@custom-media --motionOK (prefers-reduced-motion: no-preference);
-@custom-media --motionNotOK (prefers-reduced-motion: reduce);
-@custom-media --forcedColors (forced-colors: active);
