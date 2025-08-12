@@ -1,0 +1,23 @@
+---
+interface Props {
+	bannerHeadingTag?: keyof astroHTML.JSX.DefinedIntrinsicElements;
+}
+
+import BannerText from "@components/BannerText.astro";
+
+const { bannerHeadingTag } = Astro.props;
+---
+
+<header class="site-banner region">
+	<div class="wrapper">
+		<div class="flow center" data-center="text">
+			<BannerText as={bannerHeadingTag}>
+				<a href="/">Arpit Agrawal</a>
+			</BannerText>
+			<p class="introduction">
+				Hi, I'm a <span class="inverted distorted">web designer-developer</span
+				>. I design and build websites that are fast and beautiful.
+			</p>
+		</div>
+	</div>
+</header>
