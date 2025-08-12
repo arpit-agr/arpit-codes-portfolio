@@ -26,7 +26,12 @@
 
 .banner-text {
 	font-size: var(--fluid-57-147); /* step-4 to step-6 */
-	letter-spacing: var(--tracking-tight);
+
+	a::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
 }
 
 .introduction {
