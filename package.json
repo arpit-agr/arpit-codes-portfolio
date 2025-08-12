@@ -9,7 +9,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^5.12.4"
+		"astro": "^5.12.9"
 	},
 	"devDependencies": {
 		"browserslist-config-baseline": "^0.5.0",
