@@ -1,0 +1,22 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
+
+const { as: Tag, ...props } = Astro.props;
+---
+
+<Tag class="project-item stack" {...props}>
+	<div class="project-thumbnail">
+		<!-- TODO: add image -->
+	</div>
+	<div class="project-content box">
+		<div class="stack">
+			<h3>TKTK</h3>
+			<p>
+				TKTK ipsum dolor sit amet consectetur adipisicing elit necessitatibus?
+			</p>
+			<a href="#">View Project</a>
+		</div>
+	</div>
+</Tag>
