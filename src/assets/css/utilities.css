@@ -15,10 +15,6 @@
 	);
 }
 
-.display-contents {
-	display: contents;
-}
-
 .inline-size-container {
 	container-type: inline-size;
 }
