@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://arpit.codes",
+	site: "https://arpit-codes-portfolio.netlify.app",
 	trailingSlash: "always",
 	vite: {
 		build: {
