@@ -1,3 +1,24 @@
-:root {
-	color-scheme: light dark;
-}
+@layer base, global, composition, blocks, utilities, exceptions;
+
+@import url(/src/assets/css/base/font-face.css) layer(base);
+@import url(/src/assets/css/base/reset.css) layer(base);
+@import url(/src/assets/css/base/variables/size.css) layer(base);
+@import url(/src/assets/css/base/variables/font.css) layer(base);
+@import url(/src/assets/css/base/variables/color.css) layer(base);
+@import url(/src/assets/css/base/variables/shadows.css) layer(base);
+@import url(/src/assets/css/base/variables/animations.css) layer(base);
+@import url(/src/assets/css/base/variables/borders.css) layer(base);
+@import url(/src/assets/css/base/variables/media-queries.css) layer(base);
+@import url(/src/assets/css/global.css) layer(global);
+@import url(/src/assets/css/composition.css) layer(composition);
+@import url(/src/assets/css/blocks/skip-to-main.css) layer(blocks);
+@import url(/src/assets/css/blocks/site-banner.css) layer(blocks);
+@import url(/src/assets/css/blocks/site-nav.css) layer(blocks);
+@import url(/src/assets/css/blocks/site-footer.css) layer(blocks);
+@import url(/src/assets/css/blocks/project-item.css) layer(blocks);
+@import url(/src/assets/css/blocks/blockquote.css) layer(blocks);
+@import url(/src/assets/css/blocks/contact-form.css) layer(blocks);
+@import url(/src/assets/css/utilities.css) layer(utilities);
+@import url(/src/assets/css/exceptions/projects.css) layer(exceptions);
+@import url(/src/assets/css/exceptions/about-me.css) layer(exceptions);
+@import url(/src/assets/css/exceptions/contact.css) layer(exceptions);
