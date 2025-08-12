@@ -18,6 +18,7 @@
 @import url(/src/assets/css/blocks/project-item.css) layer(blocks);
 @import url(/src/assets/css/blocks/blockquote.css) layer(blocks);
 @import url(/src/assets/css/blocks/contact-form.css) layer(blocks);
+@import url(/src/assets/css/blocks/speckles.css) layer(blocks);
 @import url(/src/assets/css/utilities.css) layer(utilities);
 @import url(/src/assets/css/exceptions/projects.css) layer(exceptions);
 @import url(/src/assets/css/exceptions/about-me.css) layer(exceptions);
