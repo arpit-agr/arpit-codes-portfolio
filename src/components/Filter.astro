@@ -1,0 +1,66 @@
+<svg width="0" height="0" aria-hidden="true" class="visually-hidden">
+	<defs>
+		<filter id="n0">
+			<feTurbulence baseFrequency="0.01 0.01" numOctaves="1" result="noise"
+			></feTurbulence>
+			<feDisplacementMap
+				in="SourceGraphic"
+				in2="noise"
+				scale="1.02"
+				xChannelSelector="R"
+				yChannelSelector="R"
+			>
+			</feDisplacementMap>
+		</filter>
+
+		<filter id="n1">
+			<feTurbulence
+				type="fractalNoise"
+				baseFrequency="0.001 0.001"
+				numOctaves="5"
+				result="NOISE"
+				seed="082042"></feTurbulence>
+			<feGaussianBlur in="SourceGraphic" result="BLURRED" stdDeviation="0"
+			></feGaussianBlur>
+			<feDisplacementMap
+				id="displacer"
+				in2="NOISE"
+				in="BLURRED"
+				scale="18"
+				xChannelSelector="R"
+				yChannelSelector="R"
+				result="DISPLACED"></feDisplacementMap>
+		</filter>
+
+		<filter id="roughpaper">
+			<feTurbulence
+				type="fractalNoise"
+				baseFrequency=".04"
+				result="noise"
+				numOctaves="20"></feTurbulence>
+
+			<feDiffuseLighting in="noise" lighting-color="#FDECD4" surfaceScale="10">
+				<feDistantLight azimuth="5" elevation="5"></feDistantLight>
+			</feDiffuseLighting>
+		</filter>
+
+		<filter id="grain">
+			<feTurbulence
+				type="fractalNoise"
+				baseFrequency="3"
+				numOctaves="7"
+				result="turbulence"></feTurbulence>
+
+			<feSpecularLighting
+				surfaceScale="3"
+				specularConstant="0.7"
+				specularExponent="20"
+				lighting-color="#fff"
+				in="turbulence"
+				result="specularLighting"
+			>
+				<feDistantLight azimuth="45" elevation="60"></feDistantLight>
+			</feSpecularLighting>
+		</filter>
+	</defs>
+</svg>
