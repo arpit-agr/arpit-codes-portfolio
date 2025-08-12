@@ -40,7 +40,7 @@
 .mail {
 	font-size: var(--step-1);
 	line-height: var(--leading-flat);
-	padding: var(--input-padding);
+	padding: var(--action-padding);
 	rotate: -1deg;
 	text-align-last: center;
 }

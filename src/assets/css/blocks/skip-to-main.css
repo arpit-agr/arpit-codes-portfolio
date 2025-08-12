@@ -1,5 +1,5 @@
 .skip-to-main {
-	padding: var(--input-padding);
+	padding: var(--action-padding);
 	background: var(--color-bg);
 	transition:
 		outline-offset var(--transition-duration) var(--ease-out-3),

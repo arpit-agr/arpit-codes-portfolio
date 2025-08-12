@@ -37,7 +37,7 @@
 	}
 
 	> * {
-		--flow-space: var(--input-padding);
+		--flow-space: var(--action-padding);
 	}
 
 	input,
@@ -48,7 +48,7 @@
 
 	input,
 	button {
-		padding-block: var(--input-padding);
+		padding-block: var(--action-padding);
 	}
 
 	input,
@@ -160,7 +160,7 @@
 
 .correspondence {
 	--stack-horizontal-alignment: stretch;
-	--stack-gap: var(--input-padding);
+	--stack-gap: var(--action-padding);
 
 	* {
 		inline-size: 100%;
