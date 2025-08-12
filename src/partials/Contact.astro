@@ -1,0 +1,25 @@
+---
+import Flare from "@assets/img/flare.svg";
+import ContactForm from "@components/ContactForm.astro";
+---
+
+<section class="flow wrapper" id="contact">
+	<div class="flow center" data-center="text">
+		<h2>Contact</h2>
+		<p>
+			If you have a project in mind or would simply like to say hello, you can
+			reach me by email
+		</p>
+	</div>
+	<div class="center">
+		<a class="mail inverted distorted" href="mailto:hello@arpit.codes">
+			hello@arpit.codes
+		</a>
+		<div class="or grid">
+			<Flare />
+			<span>or fill out the postcard below</span>
+			<Flare />
+		</div>
+		<ContactForm />
+	</div>
+</section>
