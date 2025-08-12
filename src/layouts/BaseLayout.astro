@@ -4,9 +4,14 @@ import type { ComponentProps } from "astro/types";
 
 /* Regular imports (components, assets, constants, etc.) */
 import BaseHead from "@components/BaseHead.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import Speckles from "@components/Speckles.astro";
+import Filter from "@components/Filter.astro";
 
 /* Interface Props */
-type Props = ComponentProps<typeof BaseHead>;
+type Props = ComponentProps<typeof BaseHead> & {
+	bodyClass?: string;
+};
 
 /* Extract props */
 const {
@@ -17,6 +22,7 @@ const {
 	socialImageURL,
 	socialImageAlt,
 	canonicalURL,
+	bodyClass,
 } = Astro.props;
 
 /** Other local constants or functions */
@@ -35,8 +41,10 @@ const {
 			canonicalURL={canonicalURL}
 		/>
 	</head>
-	<body>
-		<!-- Content -->
+	<body class={bodyClass}>
 		<slot />
+		<SiteFooter />
+		<Speckles />
+		<Filter />
 	</body>
 </html>
