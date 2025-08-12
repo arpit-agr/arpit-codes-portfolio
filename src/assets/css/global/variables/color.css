@@ -3,6 +3,9 @@
 	/*--color-light: hsl(0deg 0% 95%);*/
 	--color-light: Thistle;
 	--color-dark: hsl(0deg 0% 5%);
+
+	/*--color-light: white;
+	--color-dark: #0c3cd4;*/
 }
 
 /* 2nd order variables */
