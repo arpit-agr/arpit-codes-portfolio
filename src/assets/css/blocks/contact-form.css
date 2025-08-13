@@ -134,7 +134,9 @@
 		gap: inherit;
 	}
 
-	input:-webkit-autofill {
+	/* https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
+	input:is(:-webkit-autofill, :autofill) {
+		-webkit-text-fill-color: var(--color-text);
 		-webkit-box-shadow: 0 0 0px 1000px var(--_color-form-bg) inset;
 	}
 
