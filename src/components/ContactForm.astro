@@ -4,50 +4,66 @@ import { Image } from "astro:assets";
 import postageStamp from "@assets/img/bhagat-singh-postage.png";
 ---
 
-<form class="contact-form box" action="" method="get">
-	<div class="sidebar inline-size-container">
-		<div class="metadata stack">
-			<div>
-				<div class="postage-stamp-container">
-					<Image src={postageStamp} alt="A description of my image." />
+<form
+	class="contact-form box"
+	name="contact"
+	method="post"
+	data-netlify="true"
+	netlify-honeypot="bot-field"
+>
+	<div class="visually-hidden">
+		<label>
+			Don’t fill this out if you’re human:
+			<!-- why: tabindex="-1"
+			https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/tabindex -->
+			<input name="bot-field" tabindex="-1" />
+		</label>
+	</div>
+	<div>
+		<div class="sidebar inline-size-container">
+			<div class="metadata stack">
+				<div>
+					<div class="postage-stamp-container">
+						<Image src={postageStamp} alt="A description of my image." />
+					</div>
+					<div class="flow">
+						<p>To,</p>
+						<p class="recipient">Arpit Agrawal</p>
+					</div>
 				</div>
 				<div class="flow">
-					<p>To,</p>
-					<p class="recipient">Arpit Agrawal</p>
-				</div>
-			</div>
-			<div class="flow">
-				<p>From,</p>
-				<div class="sender grid">
-					<div>
-						<label for="full-name">Name:</label>
-						<input
-							id="full-name"
-							name="full-name"
-							type="text"
-							autocomplete="name"
-							required
-						/>
-					</div>
-					<div>
-						<label for="email-address">Email:</label>
-						<input
-							id="email-address"
-							name="email-address"
-							type="email"
-							autocomplete="email"
-							required
-						/>
+					<p>From,</p>
+					<div class="sender grid">
+						<div>
+							<label for="full-name">Name:</label>
+							<input
+								id="full-name"
+								name="full-name"
+								type="text"
+								autocomplete="name"
+								required
+							/>
+						</div>
+						<div>
+							<label for="email-address">Email:</label>
+							<input
+								id="email-address"
+								name="email-address"
+								type="email"
+								autocomplete="email"
+								required
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="correspondence stack">
-		<div class="correspondence-inner stack">
-			<label for="message">Your message:</label>
-			<textarea id="message" name="message"></textarea>
+		<div class="correspondence stack">
+			<div class="correspondence-inner stack">
+				<label for="message">Your message:</label>
+				<textarea id="message" name="message"></textarea>
+			</div>
+			<button type="submit">Send</button>
 		</div>
-		<button type="submit">Send</button>
 	</div>
 </form>
