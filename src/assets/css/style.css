@@ -1,14 +1,13 @@
-@layer base, global, composition, blocks, utilities, exceptions;
+@layer reset, theme, global, composition, blocks, utilities, exceptions;
 
-@import url(/src/assets/css/base/font-face.css) layer(base);
-@import url(/src/assets/css/base/reset.css) layer(base);
-@import url(/src/assets/css/base/variables/size.css) layer(base);
-@import url(/src/assets/css/base/variables/font.css) layer(base);
-@import url(/src/assets/css/base/variables/color.css) layer(base);
-@import url(/src/assets/css/base/variables/shadows.css) layer(base);
-@import url(/src/assets/css/base/variables/animations.css) layer(base);
-@import url(/src/assets/css/base/variables/borders.css) layer(base);
-@import url(/src/assets/css/base/variables/media-queries.css) layer(base);
+@import url(/src/assets/css/base/reset.css) layer(reset);
+@import url(/src/assets/css/theme/size.css) layer(theme);
+@import url(/src/assets/css/theme/font.css) layer(theme);
+@import url(/src/assets/css/theme/color.css) layer(theme);
+@import url(/src/assets/css/theme/shadows.css) layer(theme);
+@import url(/src/assets/css/theme/animations.css) layer(theme);
+@import url(/src/assets/css/theme/borders.css) layer(theme);
+@import url(/src/assets/css/theme/media-queries.css) layer(theme);
 @import url(/src/assets/css/global.css) layer(global);
 @import url(/src/assets/css/composition.css) layer(composition);
 @import url(/src/assets/css/blocks/skip-to-main.css) layer(blocks);

@@ -1,9 +1,4 @@
 :root {
-	--font-base: "Special Elite", system-ui;
-	--font-handwritten: "Rock Salt", cursive;
-}
-
-:root {
 	--leading-flat: 0.9;
 	--leading-tight: 1.1;
 	--leading-snug: 1.3;
