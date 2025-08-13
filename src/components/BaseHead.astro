@@ -2,6 +2,8 @@
 /* Type imports */
 
 /* Regular imports (components, assets, constants, etc.) */
+import { join } from "node:path";
+import { AstroFont } from "astro-font";
 // https://docs.astro.build/en/guides/styling/#url-css-imports
 import stylesUrl from "@assets/css/style.css?url";
 import printStylesUrl from "@assets/css/print.css?url";
@@ -46,6 +48,51 @@ const {
 	document.documentElement.classList.add("js");
 	// Use the js class in CSS, if the styling of a component is different, when JS is active.
 </script>
+
+<AstroFont
+	config={[
+		{
+			name: "Special Elite",
+			src: [
+				{
+					style: "normal",
+					weight: "400",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"SpecialElite-Regular-subset.woff2",
+					),
+				},
+			],
+			preload: true,
+			display: "swap",
+			cssVariable: "font-base",
+			fallback: "sans-serif",
+			fallbackName: "Special Elite Fallback",
+		},
+		{
+			name: "Rock Salt",
+			src: [
+				{
+					style: "normal",
+					weight: "400",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"RockSalt-Regular-subset.woff2",
+					),
+				},
+			],
+			preload: true,
+			display: "swap",
+			cssVariable: "font-handwritten",
+			fallback: "sans-serif",
+			fallbackName: "Rock Salt Fallback",
+		},
+	]}
+/>
 
 <link rel="stylesheet" href={stylesUrl} />
 <link rel="stylesheet" href={printStylesUrl} media="print" />
