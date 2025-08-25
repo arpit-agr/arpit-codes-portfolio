@@ -76,6 +76,7 @@ becasue the filters causes rendering issues on Safari
 		mix-blend-mode: hard-light;
 		opacity: 0.125;
 		pointer-events: none;
+		z-index: 9999;
 	}
 }
 
